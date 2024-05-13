@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Test Telegram WebApps API</title>
+   <title>ZOINTLY</title>
    <!-- UIkit CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/css/uikit.min.css" />
 
@@ -50,88 +50,14 @@
 </head>
 
 <body>
-   <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
+   <div class="uk-card uk-card-default uk-card-body uk-width-1-1">
+      <h3 id="head-title" class="uk-card-title"></h1>
+      <p id="donation-text-header"></p>
    </div>
-   <div class="uk-button-group uk-width-1-1 uk-flex-center">
-      <button id="btn" class="uk-button uk-button-primary">ЮКасса</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-      <button id="btnED" class="uk-button uk-button-primary">SmartGlocal</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-      <button id="btnTest" class="uk-button uk-button-primary">Test</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+   <div class="uk-card uk-card-default uk-card-body uk-width-1-1">
+      <h3 id="recieve-user" class="uk-card-title"></h1>
+      <p id="recieve-user-login"></p>
    </div>
+   <script src="js/work.js" type="text/javascript"></script>
 </body>
-
-<script>
-   let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
-   let paymethod = 0;
-   tg.expand(); //расширяем на все окно     
-   tg.MainButton.textColor = "#000";
-   tg.MainButton.color = "#47e727";
-   //tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
-
-   let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
-   let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-   let btnTest = document.getElementById("btnTest");
-
-   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      tg.MainButton.show();
-      tg.MainButton.text = "Оплатить ЮКасса";
-      paymethod = 1;
-   });
-
-   btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      tg.MainButton.show();
-      tg.MainButton.text = "Оплатить SmartGlocal";
-      paymethod = 2;
-   });
-
-   btnTest.addEventListener('click',function(){
-      btn.classList.remove("uk-button-primary");
-      btnED.classList.remove("uk-button-primary");
-      btn.classList.add("uk-button-default");
-      btnED.classList.add("uk-button-default");
-   });
-
-   /*btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isActive){ //если кнопка показана 
-         tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-         tg.MainButton.disable() //скрываем кнопку 
-      }
-      else{ //иначе
-         tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-         tg.MainButton.enable() //показываем 
-      }
-   });*/
-
-   Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      if (paymethod==1)
-      {
-         tg.sendData("1,100");
-      }
-      if (paymethod==2)
-      {
-         tg.sendData("2,100");
-      }
-      //tg.sendData("some string that we need to send");
-      //при клике на основную кнопку отправляем данные в строковом виде
-   });
-
-
-   let usercard = document.getElementById("usercard"); //получаем блок usercard 
-
-   let profName = document.createElement('p'); //создаем параграф
-   profName.innerText = `${tg.initDataUnsafe.user.first_name}
-   ${tg.initDataUnsafe.user.last_name}
-   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-   //выдем имя, "фамилию", через тире username и код языка
-   usercard.appendChild(profName); //добавляем 
-
-   let userid = document.createElement('p'); //создаем еще параграф 
-   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   usercard.appendChild(userid); //добавляем
-
-
-   //работает только в attachment menu
-   // let pic = document.createElement('img'); //создаем img
-   // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
-   // usercard.appendChild(pic); //добавляем элемент в карточку 
-</script>
 </html>
