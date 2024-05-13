@@ -29,7 +29,7 @@ let reciveUserLogin = document.getElementById("recieve-user-login");
 
 titleEL.innerText=getURLParam('id');
 donationText.innerText="Донат 100р";
-reciveUser.innerText='${tg.initDataUnsafe.user.first_name}';
+reciveUser.innerText=tg.initDataUnsafe.user.first_name;
 
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
    tg.MainButton.show();
