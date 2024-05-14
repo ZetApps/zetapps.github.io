@@ -24,12 +24,16 @@ let titleEL = document.getElementById("head-title");
 let donationText = document.getElementById("donation-text-header");
 let reciveUser = document.getElementById("recieve-user");
 let reciveUserLogin = document.getElementById("recieve-user-login");
+let reciveUserPhoto = document.getElementById("recieve-user-photo");
+
 
 
 
 titleEL.innerText=getURLParam('id');
 donationText.innerText="Донат 100р";
-reciveUser.innerText=`${tg.initDataUnsafe.user.id}`;
+reciveUser.innerText = `${tg.initDataUnsafe.user.first_name}`;
+reciveUserLogin.innerText=`${tg.initDataUnsafe.user.username}`;
+reciveUserPhoto.src = `${tg.initDataUnsafe.user.photo_url}`;
 
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
    tg.MainButton.show();
