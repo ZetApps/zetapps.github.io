@@ -10,6 +10,11 @@ function getURLParam(paramName) {
   return params.get(paramName);
 }
 
+function getEl(elName)
+{
+   return document.getElementById(elName);
+}
+
 let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
 let paymethod = 0;
 tg.expand(); //расширяем на все окно     
@@ -17,53 +22,32 @@ tg.MainButton.textColor = "#000";
 tg.MainButton.color = "#47e727";
 //tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
-let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
-let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-let btnTest = document.getElementById("btnTest");
-let titleEL = document.getElementById("head-title");
-let donationText = document.getElementById("donation-text-header");
-let reciveUser = document.getElementById("recieve-user");
-let reciveUserLogin = document.getElementById("recieve-user-login");
-let reciveUserPhoto = document.getElementById("recieve-user-photo");
+let btn = getEl("btn"); //получаем кнопку скрыть/показать 
+let headText = getEl("main-title");
+let reciveUserLogin = getEl("recieve-user-login");
+let reciveUserName = getEl("recieve-user-name");
+let reciveUserPhoto = getEl("recieve-user-photo");
+
+headText.innerText = "Донат для кого-то";
+reciveUserLogin.innerText = "@ASDASD";
+reciveUserName.innerText = "Test Name";
+reciveUserPhoto.src = "https://gravatar.com/avatar/4fca4deaa3294abc4fbef287fa746bda?s=200&d=identicon&r=x";
 
 
+reciveUserLogin.innerText = `${tg.initDataUnsafe.user.username}`;
+reciveUserName.innerText = `${tg.initDataUnsafe.user.first_name}`;
+reciveUserPhoto.src = `${tg.initDataUnsafe.user.photo_url}`;
 
-
-titleEL.innerText=getURLParam('id');
-donationText.innerText="Донат 100р";
+/*
 reciveUser.innerText = `${tg.initDataUnsafe.user.first_name}`;
 reciveUserLogin.innerText=`${tg.initDataUnsafe.user.username}`;
 reciveUserPhoto.src = `${tg.initDataUnsafe.user.photo_url}`;
-
+*/
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
    tg.MainButton.show();
    tg.MainButton.text = "Оплатить ЮКасса";
    paymethod = 1;
 });
-
-btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-   tg.MainButton.show();
-   tg.MainButton.text = "Оплатить SmartGlocal";
-   paymethod = 2;
-});
-
-btnTest.addEventListener('click',function(){
-   btn.classList.remove("uk-button-primary");
-   btnED.classList.remove("uk-button-primary");
-   btn.classList.add("uk-button-default");
-   btnED.classList.add("uk-button-default");
-});
-
-/*btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-   if (tg.MainButton.isActive){ //если кнопка показана 
-      tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-      tg.MainButton.disable() //скрываем кнопку 
-   }
-   else{ //иначе
-      tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-      tg.MainButton.enable() //показываем 
-   }
-});*/
 
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
    if (paymethod==1)
