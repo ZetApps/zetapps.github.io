@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ZOINTLY</title>
+   <!-- UIkit CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/css/uikit.min.css" />
+
+   <!-- UIkit JS -->
+   <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/js/uikit.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/js/uikit-icons.min.js"></script>
+   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+
+   <style>
+      body{
+         color: var(--tg-theme-text-color);
+         background: var(--tg-theme-bg-color);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         font-size: 18px;
+      }
+
+      .hint{
+         color: var(--tg-theme-hint-color);
+      }
+
+      .link{
+         color: var(--tg-theme-link-color);
+      }
+
+      .button{
+         background: var(--tg-theme-button-color);
+         color: var(--tg-theme-button-text-color);
+         border: none;
+         font-size: 18px;
+      }
+
+      .button:not(:last-child){
+         margin-bottom: 20px
+      }
+
+      #usercard{
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="uk-card uk-width-1-1">
+      <h3 id="title-text" class="uk-card-title uk-card-body">Title Text</h3>
+   </div>
+   <div class="uk-card uk-card-default uk-width-1-1 uk-margin-small-top">
+      <div class="uk-card-header">
+         <h5 id="reciever-name" class="uk-card-title">Reciever Name</h5>
+      </div>
+      <div class="uk-card-body uk-flex uk-width-1-1">
+         <img
+         src="https://play.teleporthq.io/static/svg/default-img.svg"
+         alt="image"
+         loading="lazy"
+         class="uk-logo"
+         width="100px"
+         />
+         <h5 id="reciever-login" class="uk-text-small uk-flex-center uk-padding-small uk-padding-remove-vertical">@recieverLogin</h5>
+      </div>
+   </div>
+   <div class="uk-card uk-card-default uk-width-1-1 uk-margin-small-top">
+      <div class="uk-card-header">
+         <label class="uk-card-title">Select Value</label>
+      </div>
+      <div class="uk-card-body uk-flex-center uk-width-expand">
+         <button type="button" class="uk-button uk-button-default">100</button>
+         <button type="button" class="uk-button uk-button-default">200</button>
+         <button type="button" class="uk-button uk-button-default">300</button>
+         <button type="button" class="uk-button uk-button-default">400</button>
+         <button type="button" class="uk-button uk-button-default">Custom</button>
+      </div>
+   </div>
+   <input
+      type="numeric"
+      placeholder="Write Custom Value..."
+      id="custom-value"
+      disabled
+      class="uk-input uk-width-1-1 uk-margin-small-top"
+   />
+   <input
+      type="text"
+      placeholder="Write Comment..."
+      id="donat-comment"
+      disabled
+      class="uk-input uk-width-1-1 uk-margin-small-top"
+   />
+   <script src="js/work.js" type="text/javascript"></script>
+</body>
+</html>
