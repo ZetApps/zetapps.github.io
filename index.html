@@ -1,101 +1,99 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Zointly</title>
-    <meta property="og:title" content="Zointly" />
-    <meta name="robots" content="noindex" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ZOINTLY</title>
+   <!-- UIkit CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/css/uikit.min.css" />
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Noto Sans;
-        font-size: 16px;
+   <!-- UIkit JS -->
+   <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/js/uikit.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.10/dist/js/uikit-icons.min.js"></script>
+   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+
+   <style>
+      body{
+         color: var(--tg-theme-text-color);
+         background: var(--tg-theme-bg-color);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         font-size: 18px;
       }
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-theme-neutral-dark);
-        background-color: var(--dl-color-theme-neutral-light);
-
-        fill: var(--dl-color-theme-neutral-dark);
+      .hint{
+         color: var(--tg-theme-hint-color);
       }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
-  </head>
-  <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-      <link href="./index.css" rel="stylesheet" />
 
-      <div class="home-container">
-        <div class="home-container1">
-          <h3 id="title-text" class="home-text">Text</h3>
-        </div>
-        <div class="home-container2">
-          <div class="home-container3">
-            <img
-              src="https://play.teleporthq.io/static/svg/default-img.svg"
-              alt="image"
-              loading="lazy"
-              class="home-image"
-            />
-          </div>
-          <h5 id="reciever-name">Text</h5>
-        </div>
-        <div class="home-container4">
-          <div class="home-container5">
-            <label class="home-text2">Select Value</label>
-          </div>
-          <div class="home-container6">
-            <button type="button" class="button home-button">100</button>
-            <button type="button" class="button home-button1">200</button>
-            <button type="button" class="button home-button2">300</button>
-            <button type="button" class="button home-button3">400</button>
-            <button type="button" class="button home-button4">Custom</button>
-          </div>
-        </div>
-        <input
-          type="text"
-          placeholder="Write Custom Value"
-          id="custom-value"
-          disabled="true"
-          class="home-textinput"
-        />
-        <input
-          type="text"
-          placeholder="Write Custom Value"
-          id="donat-comment"
-          disabled="true"
-          class="home-textinput1"
-        />
+      .link{
+         color: var(--tg-theme-link-color);
+      }
+
+      .button{
+         background: var(--tg-theme-button-color);
+         color: var(--tg-theme-button-text-color);
+         border: none;
+         font-size: 18px;
+      }
+
+      .button:not(:last-child){
+         margin-bottom: 20px
+      }
+
+      #usercard{
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="uk-card uk-width-1-1">
+      <h3 id="title-text" class="uk-card-title uk-card-body">Title Text</h3>
+   </div>
+   <div class="uk-card uk-card-default uk-width-1-1 uk-margin-small-top">
+      <div class="uk-card-header">
+         <h5 id="reciever-name" class="uk-card-title">Reciever Name</h5>
       </div>
-    </div>
-  </body>
+      <div class="uk-card-body uk-flex uk-width-1-1">
+         <img
+         src="https://play.teleporthq.io/static/svg/default-img.svg"
+         alt="image"
+         loading="lazy"
+         class="uk-logo"
+         width="100px"
+         />
+         <h5 id="reciever-login" class="uk-text-small uk-flex-center uk-padding-small uk-padding-remove-vertical">@recieverLogin</h5>
+      </div>
+   </div>
+   <div class="uk-card uk-card-default uk-width-1-1 uk-margin-small-top">
+      <div class="uk-card-header">
+         <label class="uk-card-title">Select Value</label>
+      </div>
+      <div class="uk-card-body uk-flex-center uk-width-expand uk-panel-scrollable">
+         <button type="button" class="uk-button uk-button-default">100</button>
+         <button type="button" class="uk-button uk-button-default">200</button>
+         <button type="button" class="uk-button uk-button-default">300</button>
+         <button type="button" class="uk-button uk-button-default">400</button>
+         <button type="button" class="uk-button uk-button-default">Custom</button>
+      </div>
+   </div>
+   <input
+      type="numeric"
+      placeholder="Write Custom Value..."
+      id="custom-value"
+      disabled
+      class="uk-input uk-width-1-1 uk-margin-small-top"
+   />
+   <input
+      type="text"
+      placeholder="Write Comment..."
+      id="donat-comment"
+      disabled
+      class="uk-input uk-width-1-1 uk-margin-small-top"
+   />
+   <script src="js/work.js" type="text/javascript"></script>
+</body>
 </html>
